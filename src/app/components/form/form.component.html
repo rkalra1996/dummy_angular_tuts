@@ -1,0 +1,24 @@
+<div class="form">
+<form [formGroup]="registration" (ngSubmit)="createForm()">
+  <label>
+      Name: <input type="text" formControlName="name" />
+  </label><br/>
+  <label>
+      Email: <input type="text" formControlName="email" />
+  </label><br/>
+  <label>
+      Password: <input type="password" formControlName="password" />
+  </label><br/>
+  <div formGroupName="address">
+    <h1>Address</h1>
+      <label>
+          street: <input type="text" formControlName="street" />
+      </label><br/>
+      <label>
+          landmark: <input type="text" formControlName="landmark" />
+      </label>
+  </div>
+
+  <button class="btn btn-success btn-md" type="submit">submit</button>
+  </form>
+</div>
