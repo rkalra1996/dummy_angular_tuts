@@ -1,7 +1,7 @@
 <div class="form">
 <form [formGroup]="registration" (ngSubmit)="createForm()">
   <label>
-      Name: <input type="text" formControlName="name" />
+      Name: <input type="text" formControlName="name" required />
   </label><br/>
   <label>
       Email: <input type="text" formControlName="email" />
@@ -19,6 +19,6 @@
       </label>
   </div>
 
-  <button class="btn btn-success btn-md" type="submit">submit</button>
+  <button class="btn btn-success btn-md" [disabled]="registration.invalid" type="submit">submit</button>
   </form>
 </div>
