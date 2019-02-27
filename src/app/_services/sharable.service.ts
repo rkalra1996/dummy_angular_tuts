@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviourSubject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,7 @@ import { BehaviourSubject } from 'rxjs';
 export class SharableService {
 
   //creating a behaviour subject to store the data
-  BS = new BehaviourSubject<string>('Rishabh Kalra');
+  private BS = new BehaviorSubject<string>('Rishabh Kalra');
   //convert it into an observable for subscription
   BSObs = this.BS.asObservable();
 
