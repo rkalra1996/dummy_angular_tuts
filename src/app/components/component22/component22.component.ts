@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharableService } from 'src/app/_services/sharable.service';
 
 @Component({
   selector: 'app-component22',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Component22Component implements OnInit {
 
-  constructor() { }
+  constructor(private shSrvc : SharableService) { }
 
   ngOnInit() {
   }
+
+  sendData(){
+    //this will be used to send and empty data = 'empty string'
+    this.shSrvc.sendMessage('');
+  }
+
 
 }
