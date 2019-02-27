@@ -1,3 +1,6 @@
-<p>
-  This is component 1 : {{data}}
-</p>
+<div class="container-fluid">
+  Name :<input type="text" placeholder="type here" (keyup)="sendData($event.target.value)"/>
+  <p>
+    This is component 1 : {{data}}
+  </p>
+</div>
