@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, ValidatorFn, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-form',
@@ -8,9 +8,19 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class FormComponent implements OnInit {
 
+
+  verifyemail(): any {
+    return (control: AbstractControl): {[key: string]: any} | false => {
+      let newExp = RegExp('[^\s@]+@[^\s@]+\.[^\s@]+');
+      const forbidden = newExp.test(control.value);
+      console.log("email", forbidden)
+      return forbidden ? {'verifyemail': true} : null;
+    };
+  }
+
   registration = this.fb.group({
     name : ['', Validators.required],
-    email : [''],
+    email : ['',[this.verifyemail()]],
     password : [''],
     address : this.fb.group({
       street : [''],

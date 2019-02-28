@@ -1,15 +1,19 @@
-<div class="form">
+<div class="form col-md-8">
 <form [formGroup]="registration" (ngSubmit)="createForm()">
   <label>
       Name: <input type="text" formControlName="name" required />
-  </label><br/>
+          <p *ngIf="registration.get('name').errors?.required && (registration.get('name').touched || registration.get('name').dirty)"  class="error">Name cannot be empty</p>
+  </label>
+  <br/>
   <label>
       Email: <input type="text" formControlName="email" />
-  </label><br/>
+      <p *ngIf="registration.get('email').verifyemail !== true && (registration.get('email').touched || registration.get('email').dirty)"  class="error">email is not 10</p>
+  </label>
+  <br/>
   <label>
       Password: <input type="password" formControlName="password" />
   </label><br/>
-  <div formGroupName="address">
+  <div id="address" formGroupName="address">
     <h1>Address</h1>
       <label>
           street: <input type="text" formControlName="street" />

@@ -1,0 +1,28 @@
+.form {
+    border : none;
+    padding : 20px;
+    max-width: 500px;   
+}
+
+input:focus {
+    border: 1px solid #40c4ff;
+    border-left: none;
+    border-top-left-radius: 5px;
+    padding-left: 5px;
+}
+
+input.ng-valid {
+    border : 1px solid grey;
+    border-left: 5px solid green;
+    border-bottom-left-radius: 2px;
+}
+input.ng-invalid {
+    border : 1px solid grey;
+    border-left: 5px solid red;
+    border-bottom-left-radius: 2px;
+}
+
+.error {
+    color : red;
+    margin-left : 60px;
+}
