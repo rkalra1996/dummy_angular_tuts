@@ -1,0 +1,22 @@
+.form-outline {
+    margin-top : 50px;
+    border : 1px solid black;
+}
+
+.error-text {
+    color : red;
+    text-align: center;
+}
+
+.button-section {
+    text-align: center;
+}
+
+.row {
+    margin-top : 20px;
+    padding-left : 20px;
+}
+
+button {
+    margin-bottom : 20px;
+}
