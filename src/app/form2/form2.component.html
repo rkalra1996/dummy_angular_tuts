@@ -1,5 +1,5 @@
 <div class="container">
-  <form (ngSubmit)="login" class="form-outline" [formGroup]="loginGroup">
+  <form (ngSubmit)="login()" class="form-outline" [formGroup]="loginForm">
     <!--username section-->
     <div class="row">
       <div class="input-section col-md-6">
@@ -7,7 +7,8 @@
           UserName
           <input type="text" formControlName="nameControl" />
           <span class="error-text">
-            <p class="h6">Username is empty/invalid</p>
+            <p class="h6" *ngIf="loginForm.get('nameControl').errors?.minlength && (loginForm.get('nameControl').touched || loginForm.get('nameControl').dirty)">make it atleast 5 chars</p>
+            <p class="h6" *ngIf="loginForm.get('nameControl').errors?.required && (loginForm.get('nameControl').touched || loginForm.get('nameControl').dirty)">Username is invalid</p>
           </span>
         </label>
       </div>
@@ -18,9 +19,10 @@
       <div class="input-section col-md-6">
         <label>
           Password
-          <input type="text" formControlName="nameControl" />
+          <input type="password" formControlName="passControl" />
           <span class="error-text">
-            <p class="h6">Password is empty or invalid</p>
+            <p class="h6" *ngIf="loginForm.get('passControl').errors?.required && (loginForm.get('passControl').touched || loginForm.get('passControl').dirty)">Password is empty</p>
+            <p class="h6" *ngIf="loginForm.get('passControl').errors?.minlength && (loginForm.get('passControl').touched || loginForm.get('passControl').dirty)">make it atleast 6 chars</p>
           </span>
         </label>
       </div>
@@ -28,7 +30,10 @@
 
     <!--button section-->
     <div class="row button-section">
-      <button type="submit" class="btn btn-lg btn-success">Login</button>
+      <button type="submit" class="btn btn-lg btn-success" [disabled]="loginForm.invalid" [ngClass]="{'red': loginForm.invalid}">Login</button>
     </div>
   </form>
+</div>
+<div class="major-error" *ngIf="errorMessage.active">
+  <h3>{{errorMessage}}</h3>
 </div>
